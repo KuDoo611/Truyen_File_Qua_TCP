@@ -1,0 +1,2488 @@
+import { createBrowserRouter, Outlet, redirect } from "react-router-dom";
+import { LayoutAuth } from "../../_base/component/_layout/_layoutAuth";
+import { SelectListItem } from "../../model/SelectListItem";
+import LayoutLogin from "../../_base/component/_login/_LayoutLogin";
+import TasksView from "../../views/Tasks/tasksView";
+import { FoldersView } from "../../views/Folders/FoldersView";
+import NotFound from "../../_base/component/_layout/_404";
+import FiletTable from "../../views/System/FiletTable";
+import ProcessTaskTable from "../../views/System/ProcessTaskTable";
+import TypeContractTable from "../../views/System/TypeContractTable";
+import { Layout1 } from "../../_base/component/_layout/_layout1";
+import ProcessInstancesTable from "../../views/History/ProcessInstancesTable";
+import ConfigPrice from "../../views/ConfigSystem/ConfigPrice";
+import CreateCandidate from "../../views/Recruitment/Candidate/CreateCandidate";
+import RecruitmentManagement from "../../views/Recruitment/Candidate/CandidateManagement";
+import RecruitmentList from "../../views/Recruitment/RecruitmentList";
+import EditRecruitment from "../../views/Recruitment/EditRecruitment";
+import CreateRecruitment from "../../views/Recruitment/CreateRecruitment";
+import VendorSegmentList from "../../views/VendorSegment/VendorSegmentList";
+import CreateVendorSegment from "../../views/VendorSegment/CreateVendorSegment";
+import EditVendorSegment from "../../views/VendorSegment/EditVendorSegment";
+import QuestionnaireList from "../../views/TblQuestionnaire/QuestionnaireList";
+import QuestionnaireCreate from "../../views/TblQuestionnaire/QuestionnaireCreate";
+import DetailVendorProfile from "../../views/TblVendorProfile/DetailProfile";
+import EditProfile from "../../views/TblVendorProfile/EditProfile";
+import ListProfile from "../../views/TblVendorProfile/ListProfile";
+import CreateProfile from "../../views/TblVendorProfile/CreateProfile";
+import DetailProfile from "../../views/TblVendorProfile/DetailProfile";
+import CreateVendorCertificate from "../../views/TblVendorCertificate/CreateVendorCertificate";
+import EditVendorCertificate from "../../views/TblVendorCertificate/EditVendorCertificate";
+import VendorCertificateDetail from "../../views/TblVendorCertificate/VendorCertificateDetail";
+import VendorCertificateList from "../../views/TblVendorCertificate/VendorCertificateList";
+import JournalEntryAndJournalLinelist from "../../views/TblJournalEntryAndJournalLine/JournalEntryAndJournalLinelist";
+import JournalEntryAndJournalLineCreate from "../../views/TblJournalEntryAndJournalLine/JournalEntryAndJournalLineCreate";
+import CreateVendorDocType from "../../views/VendorDocType/CreateVendorDocType";
+import EditVendorDocType from "../../views/VendorDocType/EditVendorDocType";
+import VendorDocTypeDetail from "../../views/VendorDocType/VendorDocTypeDetail";
+import VendorDocTypeList from "../../views/VendorDocType/VendorDocTypeList";
+import VendorDocumentList from "../../views/TblVendorProfileDocument/VendorDocumentList";
+import VendorDocumentDetail from "../../views/TblVendorProfileDocument/VendorDocumentDetail";
+import VendorDocumentCreate from "../../views/TblVendorProfileDocument/CreateVendorDocument";
+import VendorDocumentEdit from "../../views/TblVendorProfileDocument/EditVendorDocument";
+import VendorProductList from "../../views/TblVendorProfileProduction/VendorProductList";
+import VendorProductDetail from "../../views/TblVendorProfileProduction/VendorProductDetail";
+import VendorProductCreate from "../../views/TblVendorProfileProduction/CreateVendorProduct";
+import VendorProductEdit from "../../views/TblVendorProfileProduction/EditVendorProduct";
+import VendorProfileBankingList from "../../views/VendorProfileBanking/VendorProfileBankingList";
+import VendorProfileBankingCreate from "../../views/VendorProfileBanking/VendorProfileBankingCreate";
+import VendorProfileBankingUpdate from "../../views/VendorProfileBanking/VendorProfileBankingUpdate";
+import VendorProfileBankingDelete from "../../views/VendorProfileBanking/VendorProfileBankingDelete";
+import QuestionList from "../../views/Question/QuestionList";
+import QuestionCreate from "../../views/Question/QuestionCreate";
+import QuestionDelete from "../../views/Question/QuestionDelete";
+import QuestionDetail from "../../views/Question/QuestionDetail";
+import QuestionEdit from "../../views/Question/QuestionEdit";
+
+import QuestionnaireDetail from "../../views/TblQuestionnaire/QuestionnaireDetail";
+import TenderList from "../../views/Tender/TenderList";
+import TenderDetail from "../../views/Tender/TenderDetail";
+import TenderCreate from "../../views/Tender/TenderCreate";
+import TenderUpdate from "../../views/Tender/TenderUpdate";
+import TblVendorProfileContactList from "../../views/TblVendorProfileContact/TblVendorProfileContactList";
+import TblVendorProfileContactCreate from "../../views/TblVendorProfileContact/TblVendorProfileContactCreate";
+import TblVendorProfileContactDelete from "../../views/TblVendorProfileContact/TblVendorProfileContactDelete";
+import TblVendorProfileContactUpdate from "../../views/TblVendorProfileContact/TblVendorProfileContactUpdate";
+
+import VendorTypeList from "../../views/VendorType/VendorTypeList";
+import CreateVendorType from "../../views/VendorType/CreateVendorType";
+import EditVendorType from "../../views/VendorType/EditVendorType";
+import VendorEvaluationList from "../../views/VendorEvaluation/VendorEvaluationList";
+import CreateEvaluation from "../../views/VendorEvaluation/CreateEvaluation";
+import DetailEvaluation from "../../views/VendorEvaluation/DetailEvaluation";
+import EvaluationDetailList from "../../views/VendorEvaluation/EvaluationDetail/EvaluationDetailList";
+import BidList from "../../views/Bid/BidList";
+import CreateBid from "../../views/Bid/CreateBid";
+import EditBid from "../../views/Bid/EditBid";
+import EditBrand from "../../views/TblBrand/EditBrand";
+import CreateBrand from "../../views/TblBrand/CreateBrand";
+import DetailBrand from "../../views/TblBrand/DetailBrand";
+import BrandList from "../../views/TblBrand/BrandList";
+import ListVendorRegistration from "../../views/TblVendorProfileRegistration/ListVendorRegistration";
+import DetailVendorRegistration from "../../views/TblVendorProfileRegistration/DetailVendorRegistration";
+import CreateVendorRegistration from "../../views/TblVendorProfileRegistration/CreateVendorRegistration";
+import EditVendorRegistration from "../../views/TblVendorProfileRegistration/EditVendorRegistration";
+import BidDetail from "../../views/Bid/BidDetail";
+import BidQuestion from "../../views/Bid/BidQuestion";
+import QuestionnaireEdit from "../../views/TblQuestionnaire/QuestionnaireEdit";
+import VendorProfileContactList from "../../views/TblVendorProfileContact/TblVendorProfileContactList";
+import CreateBidEvaluation from "../../views/VendorEvaluation/BidEvaluation/CreateBidEvaluation";
+import VendorOverviewList from "../../views/TblVendorOverview/VendorOverviewList";
+import VendorPerformanceList from "../../views/TblVendorPerformance/VendorPerformanceList";
+import VendorEvaluationPerformanceList from "../../views/TblEvaluationPerformance/VendorEvaluationPerformanceList";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    id: "root",
+    element: <Layout1 />,
+    errorElement: <NotFound />,
+    loader: async () => {
+      const auth = localStorage.getItem("token");
+      if (!auth) {
+        throw redirect("/auth/login");
+      }
+      return null;
+    },
+    children: [
+      {
+        path: "/",
+        element: <>Welcome to Hacom POS</>,
+      },
+
+      {
+        path: "/data",
+        handle: {
+          crumb: () => {
+            const model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "Dữ liệu",
+              value: "/data",
+            };
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "/data/vendor-certificate",
+            element: <VendorCertificateList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Chứng chỉ nhà cung cấp";
+                model.value = "/data/vendor-certificate";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/data/vendor-segment",
+            element: <VendorSegmentList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Phân khúc nhà cung cấp";
+                model.value = "/data/vendor-segment";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/data/vendor-doc-type",
+            element: <VendorDocTypeList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Loại tài liệu";
+                model.value = "/data/vendor-doc-type";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/data/vendor-type",
+            element: <VendorTypeList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Loại nhà cung cấp";
+                model.value = "/data/vendor-type";
+                return model;
+              },
+            },
+          },// Thêm trường này
+          {
+            path: "/data/vendor-document",
+            element: <VendorDocumentList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Tài liệu nhà cung cấp";
+                model.value = "/data/vendor-document";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/data/vendor-product",
+            element: <VendorProductList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Sản phẩm nhà cung cấp";
+                model.value = "/data/vendor-product";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/data/vendor-profile-banking",
+            element: <VendorProfileBankingList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Hồ sơ ngân hàng nhà cung cấp";
+                model.value = "/data/vendor-profile-banking";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/data/brand",
+            element: <BrandList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Thương hiệu";
+                model.value = "/data/brand";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/data/vendor-profile-contact",
+            element: <VendorProfileContactList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Hồ sơ liên hệ nhà cung cấp";
+                model.value = "/data/vendor-profile-contact";
+                return model;
+              },
+            },
+          },
+        ],
+      },
+
+      {
+        path: "/provider-registered",
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "Nhà cung cấp đăng ký",
+              value: "/provider-registered",
+            };
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "/provider-registered/profile",
+            element: <CreateVendorRegistration />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Hồ sơ nhà cung cấp";
+                model.value = "/provider-registered/profile";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/provider-registered/list-profile",
+            element: <ListVendorRegistration />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Danh sách hồ sơ nhà cung cấp";
+                model.value = "/provider-registered/list-profile";
+                return model;
+              },
+            },
+          },
+        ],
+      },
+
+      {
+        path: "/bidding",
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "Đấu thầu",
+              value: "/bidding",
+            };
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "/bidding/create-tender",
+            element: <TenderCreate />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Tạo gói thầu";
+                model.value = "/bidding/create-tender";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/bidding/create-bid",
+            element: <CreateBid />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Tạo hồ sơ dự thầu";
+                model.value = "/bidding/create-bid";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/bidding/tender-list",
+            element: <TenderList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Danh sách gói thầu";
+                model.value = "/bidding/tender-list";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/bidding/bid-list",
+            element: <BidList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Danh sách hồ sơ dự thầu";
+                model.value = "/bidding/bid-list";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/bidding/bid-question",
+            element: <BidQuestion />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Câu hỏi hồ sơ dự thầu";
+                model.value = "/bidding/bid-question";
+                return model;
+              },
+            },
+          },
+        ],
+      },
+
+      {
+        path: "/question",
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "Câu hỏi",
+              value: "/question",
+            };
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "/question/questionnaire-create",
+            element: <QuestionnaireCreate />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Thêm mới bộ câu hỏi";
+                model.value = "/question/questionnaire-create";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/question/questionnaire-list",
+            element: <QuestionnaireList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Danh sách bộ câu hỏi";
+                model.value = "/question/questionnaire-list";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/question/question-list",
+            element: <QuestionList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Danh sách câu hỏi";
+                model.value = "/question/question-list";
+                return model;
+              },
+            },
+          },
+        ],
+      },
+
+      {
+        path: "/evaluate",
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "Đánh giá nhà cung cấp",
+              value: "/evaluate",
+            };
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "/evaluate/evaluate-create",
+            element: <CreateEvaluation />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Đánh giá nhà cung cấp đăng ký";
+                model.value = "/evaluate/evaluate-create";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/evaluate/evaluate-bid-create",
+            element: <CreateBidEvaluation />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Đánh giá hồ sơ thầu đăng ký";
+                model.value = "/evaluate/evaluate-bid-create";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/evaluate/evaluate-list",
+            element: <VendorEvaluationList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Danh sách nhà cung cấp đã đánh giá";
+                model.value = "/evaluate/evaluate-list";
+                return model;
+              },
+            },
+          },
+        ],
+      },
+      {
+        path: "/report",
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "Báo cáo nhà cung cấp",
+              value: "/report",
+            };
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "/report/vendor-overview",
+            element: <VendorOverviewList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Tổng quan nhà cung cấp";
+                model.value = "/report/vendor-overview";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/report/vendor-performance",
+            element: <VendorPerformanceList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Hiệu xuất nhà cung cấp";
+                model.value = "/report/vendor-performance";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/report/vendor-evaluation-performance",
+            element: <VendorEvaluationPerformanceList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Hiệu xuất đánh giá nhà cung cấp";
+                model.value = "/report/vendor-evaluation-performance";
+                return model;
+              },
+            },
+          },
+        ],
+      },
+
+      // #region : delete routes
+      {
+        path: "/JournalEntry",
+        handle: {
+          crumb: () => {
+            const model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "Nhật ký chung",
+              value: "/JournalEntry",
+            };
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "",
+            element: <JournalEntryAndJournalLinelist />, // ĐÃ CẬP NHẬT COMPONENT
+            handle: {
+              crumb: () => ({
+                text: "Danh sách nhật ký chung",
+                value: "/JournalEntry",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+          {
+            path: "Create",
+            element: <JournalEntryAndJournalLineCreate />, // ĐÃ CẬP NHẬT COMPONENT
+            handle: {
+              crumb: () => ({
+                text: "Tạo mới nhật ký chung",
+                value: "/JournalEntry/Create",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+          {
+            path: "Edit/:id",
+            // Thay thế bằng component JournalEntryAndJournalLineEdit nếu có
+            element: (
+              <div>
+                Trang chỉnh sửa Journal Entry (Chưa có component cụ thể)
+              </div>
+            ),
+            handle: {
+              crumb: () => ({
+                text: "Chỉnh sửa nhật ký chung",
+                value: "/JournalEntry/Edit",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+          {
+            path: "Detail/:id",
+            // Thay thế bằng component JournalEntryAndJournalLineDetail nếu có
+            element: (
+              <div>Trang chi tiết Journal Entry (Chưa có component cụ thể)</div>
+            ),
+            handle: {
+              crumb: () => ({
+                text: "Chi tiết nhật ký chung",
+                value: "/JournalEntry/Detail",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+        ],
+      },
+      // Kết thúc các route cho Journal Entry và Journal Line
+      {
+        path: "/Tender",
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "Đấu Thầu",
+              value: "/Tender",
+            };
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "/Tender/TenderList",
+            element: <TenderList />,
+            handle: {
+              crumb: () => ({
+                text: "Danh sách gói thầu",
+                value: "/Tender/TenderList",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+          {
+            path: "/Tender/CreateTender",
+            element: <TenderCreate />,
+            handle: {
+              crumb: () => ({
+                text: "Dự án thầu mới",
+                value: "/Tender/CreateTender",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+          {
+            path: "/Tender/EditTender",
+            element: <TenderUpdate />,
+            handle: {
+              crumb: () => ({
+                text: "Chỉnh sửa gói thầu",
+                value: "/Tender/EditTender",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+          {
+            path: "TenderDetail",
+            element: <TenderDetail />,
+            handle: {
+              crumb: () => ({
+                text: "Chi tiết gói thầu",
+                value: "/Tender/TenderDetail",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+        ],
+      },
+      {
+        path: "/Questionnaire",
+        handle: {
+          crumb: () => {
+            const model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "Bộ câu hỏi",
+              value: "/Questionnaire",
+            };
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "QuestionnaireList",
+            element: <QuestionnaireList />, // Đã uncomment, đảm bảo component này tồn tại
+            handle: {
+              crumb: () => ({
+                text: "Danh sách bộ câu hỏi",
+                value: "/Questionnaire/QuestionnaireList",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+          {
+            path: "QuestionnaireCreate",
+            element: <QuestionnaireCreate />,
+            handle: {
+              crumb: () => ({
+                text: "Thêm bảng câu hỏi",
+                value: "/Questionnaire/Create",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+          {
+            path: "QuestionnaireEdit",
+            element: <QuestionnaireEdit />,
+            handle: {
+              crumb: () => ({
+                text: "Chỉnh sửa bảng câu hỏi",
+                value: "/Questionnaire/QuestionnaireEdit",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+          {
+            path: "QuestionnaireDetail",
+            element: <QuestionnaireDetail />,
+            handle: {
+              crumb: () => ({
+                text: "Chi tiết bảng câu hỏi",
+                value: "/Questionnaire/QuestionnaireDetail",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+          // {
+          //   path: "Edit/:id", // Thêm :id để có thể chỉnh sửa theo id
+          //   element: <EditQuestionnaire />, // Đã uncomment
+          //   handle: {
+          //     crumb: () => ({
+          //       text: "Chỉnh sửa bảng câu hỏi",
+          //       value: "/Questionnaire/Edit",
+          //       selected: false,
+          //       disabled: false,
+          //       group: null,
+          //     }),
+          //   },
+          // },
+          // {
+          //   path: "Detail/:id", // Thêm :id để có thể xem chi tiết theo id
+          //   element: <QuestionnaireDetail />, // Đã uncomment
+          //   handle: {
+          //     crumb: () => ({
+          //       text: "Chi tiết bảng câu hỏi",
+          //       value: "/Questionnaire/Detail",
+          //       text: "Thêm mới bộ câu hỏi",
+          //       value: "/Questionnaire/QuestionnaireCreate",
+          //       selected: false,
+          //       disabled: false,
+          //       group: null,
+          //     }),
+          //   },
+          // },
+        ],
+      },
+      // {
+      //   path: "data/VendorCertificateList",
+      //   handle: {
+      //     crumb: () => {
+      //       let model: SelectListItem = {
+      //         disabled: false,
+      //         group: null,
+      //         selected: false,
+      //         text: "Chứng chỉ nhà cung cấp",
+      //         value: "data/VendorCertificateList",
+      //       };
+      //       return model;
+      //     },
+      //   },
+      //   children: [
+      //     {
+      //       path: "/VendorCertificate/VendorCertificateList",
+      //       element: <VendorCertificateList />,
+      //       handle: {
+      //         crumb: () => ({
+      //           text: "Danh sách chứng chỉ",
+      //           value: "/VendorCertificate/VendorCertificateList",
+      //           disabled: false,
+      //           group: null,
+      //           selected: false,
+      //         }),
+      //       },
+      //     },
+      //     {
+      //       path: "/VendorCertificate/CreateVendorCertificate",
+      //       element: <CreateVendorCertificate />,
+      //       handle: {
+      //         crumb: () => ({
+      //           text: "Tạo mới chứng chỉ",
+      //           value: "/VendorCertificate/CreateVendorCertificate",
+      //           disabled: false,
+      //           group: null,
+      //           selected: false,
+      //         }),
+      //       },
+      //     },
+      //     {
+      //       path: "/VendorCertificate/EditVendorCertificate/:id",
+      //       element: <EditVendorCertificate />,
+      //       handle: {
+      //         crumb: () => ({
+      //           text: "Chỉnh sửa chứng chỉ",
+      //           value: "/VendorCertificate/EditVendorCertificate",
+      //           disabled: false,
+      //           group: null,
+      //           selected: false,
+      //         }),
+      //       },
+      //     },
+
+      //     {
+      //       path: "/VendorCertificate/VendorCertificateDetail/:id",
+      //       element: <VendorCertificateDetail />,
+      //       handle: {
+      //         crumb: () => ({
+      //           text: "Chi tiết chứng chỉ",
+      //           value: "/VendorCertificate/VendorCertificateDetail",
+      //           disabled: false,
+      //           group: null,
+      //           selected: false,
+      //         }),
+      //       },
+      //     },
+      //   ],
+      // },
+      {
+        path: "/TBProfile",
+        handle: {
+          crumb: () => {
+            const model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "Nhà Cung Cấp",
+              value: "/TBProfile",
+            };
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "/TBProfile/CreateProfile",
+            element: <CreateProfile />,
+            handle: {
+              crumb: () => {
+                const model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "Thêm mới nhà Cung cấp",
+                  value: "/TBProfile/CreateProfile",
+                };
+                return model;
+              },
+            },
+          },
+          {
+            path: "/TBProfile/ListProfile",
+            element: <ListProfile />,
+            handle: {
+              crumb: () => {
+                const model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "Danh sách nhà cung cấp",
+                  value: "/TBProfile/ListProfile",
+                };
+                return model;
+              },
+            },
+          },
+          {
+            path: "/TBProfile/EditProfile/:id", // Thêm :id để có thể chỉnh sửa theo id
+            element: <EditProfile />,
+            handle: {
+              crumb: () => {
+                const model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "Chỉnh sửa nhà cung cấp",
+                  value: "/TBProfile/EditProfile",
+                };
+                return model;
+              },
+            },
+          },
+          {
+            path: "/TBProfile/DetailProfile/:id", // Thêm :id để có thể xem chi tiết theo id
+            element: <DetailProfile />,
+            handle: {
+              crumb: () => ({
+                text: "Chi tiết nhà cung cấp",
+                value: "/TBProfile/DetailProfile",
+              }),
+            },
+          },
+        ],
+      },
+      {
+        path: "/Recruitment",
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "",
+              value: "",
+            };
+            model.text = "Tuyển dụng ";
+            model.value = "/Recruitment";
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "/Recruitment/CreateRecruitment",
+            element: <CreateRecruitment />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Thêm mới đợt tuyển dụng";
+                model.value = "/Recruitment/CreateRecruitment";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/Recruitment/EditRecruitment/:id", // Thêm :id
+            element: <EditRecruitment />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Chỉnh sửa đợt tuyển dụng";
+                model.value = "/Recruitment/EditRecruitment";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/Recruitment/RecruitmentList",
+            element: <RecruitmentList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Đợt tuyển dụng";
+                model.value = "/Recruitment/RecruitmentList";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/Recruitment/RecruitmentManagement",
+            element: <RecruitmentManagement />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Danh sách ứng viên";
+                model.value = "/Recruitment/RecruitmentManagement";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/Recruitment/Candidate-create",
+            element: <CreateCandidate />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Thêm mới ứng viên";
+                model.value = "/Recruitment/Candidate-create";
+                return model;
+              },
+            },
+          },
+        ],
+      },
+      {
+        path: "/VendorOverview",
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "",
+              value: "",
+            };
+            model.text = "Tổng quan NCC";
+            model.value = "/VendorOverview";
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "/VendorOverview/VendorOverviewList",
+            element: <VendorOverviewList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Danh sách tổng quan nhà cung cấp";
+                model.value = "/VendorOverview/VendorOverviewList";
+                return model;
+              },
+            },
+          },
+        ],
+      },
+      {
+        path: "/VendorPerformance",
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "",
+              value: "",
+            };
+            model.text = "Hiệu xuất NCC";
+            model.value = "/VendorPerformance";
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "/VendorPerformance/VendorPerformanceList",
+            element: <VendorPerformanceList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Danh sách hiệu xuất nhà cung cấp";
+                model.value = "/VendorPerformance/VendorPerformanceList";
+                return model;
+              },
+            },
+          },
+        ],
+      },
+      {
+        path: "/VendorEvaluationPerformance",
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "",
+              value: "",
+            };
+            model.text = "Hiệu xuất đánh giá";
+            model.value = "/VendorEvaluationPerformance";
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "/VendorEvaluationPerformance/VendorEvaluationPerformanceList",
+            element: <VendorEvaluationPerformanceList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = " Hiệu xuất đánh giá";
+                model.value = "/VendorEvaluationPerformance/VendorEvaluationPerformanceList";
+                return model;
+              },
+            },
+          },
+        ],
+      },
+      {
+        path: "/VendorDocType",
+        handle: {
+          crumb: () => {
+            const model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "Loại tài liệu",
+              value: "/VendorDocType",
+            };
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "/VendorDocType/VendorDocTypeList",
+            element: <VendorDocTypeList />,
+            handle: {
+              crumb: () => ({
+                disabled: false,
+                group: null,
+                selected: false,
+                text: "Danh sách loại tài liệu",
+                value: "/VendorDocType/VendorDocTypeList",
+              }),
+            },
+          },
+          {
+            path: "Create",
+            element: <CreateVendorDocType />,
+            handle: {
+              crumb: () => ({
+                disabled: false,
+                group: null,
+                selected: false,
+                text: "Thêm mới loại tài liệu",
+                value: "/VendorDocType/Create",
+              }),
+            },
+          },
+          {
+            path: "Edit",
+            element: <EditVendorDocType />,
+            handle: {
+              crumb: () => ({
+                disabled: false,
+                group: null,
+                selected: false,
+                text: "Chỉnh sửa loại tài liệu",
+                value: "/VendorDocType/Edit",
+              }),
+            },
+          },
+          {
+            path: "Detail",
+            element: <VendorDocTypeDetail />,
+            handle: {
+              crumb: () => ({
+                text: "Chi tiết loại tài liệu",
+                value: "/VendorDocType/Detail",
+              }),
+            },
+          },
+        ],
+      },
+      {
+        path: "/VendorDocument",
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "",
+              value: "",
+            };
+            model.text = "Quản lý tài liệu NCC";
+            model.value = "/VendorDocument";
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "/VendorDocument/VendorDocumentList",
+            element: <VendorDocumentList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Danh sách tài liệu";
+                model.value = "/VendorDocument/VendorDocumentList";
+                return model;
+              },
+            },
+          },
+
+          {
+            path: "/VendorDocument/VendorDocumentDetail",
+            element: <VendorDocumentDetail />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Chi tiết tài liệu";
+                model.value = "/VendorDocument/VendorDocumentDetail";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/VendorDocument/VendorDocumentCreate",
+            element: <VendorDocumentCreate />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Thêm mới tài liệu";
+                model.value = "/VendorDocument/VendorDocumentCreate";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/VendorDocument/VendorDocumentEdit",
+            element: <VendorDocumentEdit />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Chỉnh sửa tài liệu";
+                model.value = "/VendorDocument/VendorDocumentEdit";
+                return model;
+              },
+            },
+          },
+        ],
+      },
+      {
+        path: "/VendorProduct",
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "",
+              value: "",
+            };
+            model.text = "Quản lý sản phẩm NCC";
+            model.value = "/VendorProduct";
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "/VendorProduct/VendorProductList",
+            element: <VendorProductList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Danh sách sản phẩm";
+                model.value = "/VendorProduct/VendorProductList";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/VendorProduct/VendorProductCreate",
+            element: <VendorProductCreate />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Thêm sản phẩm";
+                model.value = "/VendorProduct/VendorProductCreate";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/VendorProduct/VendorProductEdit",
+            element: <VendorProductEdit />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Chỉnh sửa sản phẩm";
+                model.value = "/VendorProduct/VendorProductEdit";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/VendorProduct/VendorProductDetail",
+            element: <VendorProductDetail />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Chi tiết sản phẩm";
+                model.value = "/VendorProduct/VendorProductDetail";
+                return model;
+              },
+            },
+          },
+        ],
+      },
+      {
+        path: "/tasks",
+        element: <TasksView />,
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "",
+              value: "",
+            };
+            model.text = "Phê duyệt";
+            model.value = "/tasks";
+            return model;
+          },
+        },
+      },
+      {
+        path: "/forders",
+        element: <FoldersView />,
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "",
+              value: "",
+            };
+            model.text = "Trang chủ";
+            model.value = "/";
+            return model;
+          },
+        },
+      },
+      {
+        path: "/history",
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "",
+              value: "",
+            };
+            model.text = "Lịch sử";
+            model.value = "/history";
+            return model;
+          },
+        },
+        children: [],
+      },
+      {
+        path: "/config-system",
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "",
+              value: "",
+            };
+            model.text = "Cấu hình hệ thống";
+            model.value = "/config-system";
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "config-price",
+            element: <ConfigPrice></ConfigPrice>,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                return model;
+              },
+            },
+          },
+        ],
+      },
+      {
+        path: "/system",
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "",
+              value: "",
+            };
+            model.text = "Hệ thống";
+            model.value = "/system";
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "process-task",
+            element: <ProcessTaskTable />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Công việc đang xử lý";
+                model.value = "/system/process-task";
+                return model;
+              },
+            },
+          },
+          {
+            path: "process-instances",
+            element: <ProcessInstancesTable />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Quá trình duyệt";
+                model.value = "/system/process-instances";
+                return model;
+              },
+            },
+          },
+          {
+            path: "document-type",
+            element: <TypeContractTable />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Loại tài liệu";
+                model.value = "/system/document-type";
+                return model;
+              },
+            },
+          },
+          {
+            path: "file-number",
+            element: <FiletTable />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Số hồ sơ";
+                model.value = "/system/file-number";
+                return model;
+              },
+            },
+          },
+        ],
+      },
+      {
+        path: "/vendor-evaluations",
+        element: <Outlet />, // Parent route for Vendor Evaluations
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "Đánh giá Nhà cung cấp",
+              value: "/vendor-evaluations",
+            };
+            return model;
+          },
+        },
+      },
+      {
+        path: "/VendorSegment",
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "",
+              value: "",
+            };
+            model.text = "Phân khúc nhà cung cấp";
+            model.value = "/VendorSegment";
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "/VendorSegment/VendorSegmentList",
+            element: <VendorSegmentList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Danh sách phân khúc nhà cung cấp";
+                model.value = "/VendorSegment/VendorSegmentList";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/VendorSegment/CreateVendorSegment",
+            element: <CreateVendorSegment />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Thêm mới phân khúc nhà cung cấp";
+                model.value = "/VendorSegment/CreateVendorSegment";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/VendorSegment/EditVendorSegment",
+            element: <EditVendorSegment />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Chỉnh sửa phân khúc nhà cung cấp";
+                model.value = "/VendorSegment/EditVendorSegment";
+                return model;
+              },
+            },
+          },
+
+          // ...add more VendorSegment children here if needed...
+        ],
+      },
+      // {
+      //   path: "/VendorProfileBanking",
+      //   handle: {
+      //     crumb: () => {
+      //       let model: SelectListItem = {
+      //         disabled: false,
+      //         group: null,
+      //         selected: false,
+      //         text: "",
+      //         value: "",
+      //       };
+      //       model.text = "Tài khoản ngân hàng NCC";
+      //       model.value = "/VendorProfileBanking";
+      //       return model;
+      //     },
+      //   },
+      //   children: [
+      //     {
+      //       path: "",
+      //       element: <VendorProfileBankingList />,
+      //       handle: {
+      //         crumb: () => {
+      //           let model: SelectListItem = {
+      //             disabled: false,
+      //             group: null,
+      //             selected: false,
+      //             text: "",
+      //             value: "",
+      //           };
+      //           model.text = "Danh sách tài khoản ngân hàng NCC";
+      //           model.value = "/VendorProfileBanking";
+      //           return model;
+      //         },
+      //       },
+      //     },
+      //     {
+      //       path: "Create",
+      //       element: <VendorProfileBankingCreate />,
+      //       handle: {
+      //         crumb: () => {
+      //           let model: SelectListItem = {
+      //             disabled: false,
+      //             group: null,
+      //             selected: false,
+      //             text: "",
+      //             value: "",
+      //           };
+      //           model.text = "Thêm tài khoản ngân hàng NCC";
+      //           model.value = "/VendorProfileBanking/Create";
+      //           return model;
+      //         },
+      //       },
+      //     },
+      //     {
+      //       path: "Edit",
+      //       element: <VendorProfileBankingUpdate />,
+      //       handle: {
+      //         crumb: () => {
+      //           let model: SelectListItem = {
+      //             disabled: false,
+      //             group: null,
+      //             selected: false,
+      //             text: "",
+      //             value: "",
+      //           };
+      //           model.text = "Chỉnh sửa tài khoản ngân hàng NCC";
+      //           model.value = "/VendorProfileBanking/Edit";
+      //           return model;
+      //         },
+      //       },
+      //     },
+      //     {
+      //       path: "Delete",
+      //       element: (
+      //         <VendorProfileBankingDelete idItems={[]} onClose={() => {}} />
+      //       ),
+      //       handle: {
+      //         crumb: () => {
+      //           let model: SelectListItem = {
+      //             disabled: false,
+      //             group: null,
+      //             selected: false,
+      //             text: "",
+      //             value: "",
+      //           };
+      //           model.text = "Xóa tài khoản ngân hàng NCC";
+      //           model.value = "/VendorProfileBanking/Delete";
+      //           return model;
+      //         },
+      //       },
+      //     },
+      //   ],
+      // },
+      {
+        path: "/TblVendorProfileContact",
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "Liên hệ nhà cung cấp",
+              value: "/TblVendorProfileContact",
+            };
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "",
+            element: <TblVendorProfileContactList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "Danh sách liên hệ nhà cung cấp",
+                  value: "/TblVendorProfileContact",
+                };
+                return model;
+              },
+            },
+          },
+          {
+            path: "Create",
+            element: <TblVendorProfileContactCreate />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "Thêm liên hệ nhà cung cấp",
+                  value: "/TblVendorProfileContact/Create",
+                };
+                return model;
+              },
+            },
+          },
+          {
+            path: "Edit",
+            element: <TblVendorProfileContactUpdate />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "Chỉnh sửa liên hệ nhà cung cấp",
+                  value: "/TblVendorProfileContact/Edit",
+                };
+                return model;
+              },
+            },
+          },
+          {
+            path: "Delete",
+            element: (
+              <TblVendorProfileContactDelete idItems={[]} onClose={() => { }} />
+            ),
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "Xóa liên hệ nhà cung cấp",
+                  value: "/TblVendorProfileContact/Delete",
+                };
+                return model;
+              },
+            },
+          },
+        ],
+      },
+      {
+        path: "/Question",
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "Câu hỏi",
+              value: "/Question",
+            };
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "QuestionList",
+            element: <QuestionList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "Danh sách câu hỏi",
+                  value: "/Question/QuestionList",
+                };
+                return model;
+              },
+            },
+          },
+          {
+            path: "QuestionCreate",
+            element: <QuestionCreate />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "Thêm mới câu hỏi",
+                  value: "/Question/QuestionCreate",
+                };
+                return model;
+              },
+            },
+          },
+          {
+            path: "QuestionEdit",
+            element: <QuestionEdit />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "Chỉnh sửa câu hỏi",
+                  value: "/Question/QuestionEdit",
+                };
+                return model;
+              },
+            },
+          },
+          {
+            path: "QuestionDelete",
+            element: <QuestionDelete idItems={[]} onClose={() => { }} />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "Xóa câu hỏi",
+                  value: "/Question/QuestionDelete",
+                };
+                return model;
+              },
+            },
+          },
+          {
+            path: "QuestionDetail",
+            element: <QuestionDetail />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "Chi tiết câu hỏi",
+                  value: "/Question/QuestionDetail",
+                };
+                return model;
+              },
+            },
+          },
+        ],
+      },
+      {
+        path: "/VendorType",
+        handle: {
+          crumb: () => {
+            let model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "",
+              value: "",
+            };
+            model.text = "Nhà cung cấp";
+            model.value = "/VendorType";
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "/VendorType/VendorTypeList",
+            element: <VendorTypeList />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Danh sách nhà cung cấp";
+                model.value = "/VendorType/VendorTypeList";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/VendorType/CreateVendorType",
+            element: <CreateVendorType />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Thêm mới nhà cung cấp";
+                model.value = "/VendorType/CreateVendorType";
+                return model;
+              },
+            },
+          },
+          {
+            path: "/VendorType/EditVendorType",
+            element: <EditVendorType />,
+            handle: {
+              crumb: () => {
+                let model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "",
+                  value: "",
+                };
+                model.text = "Chỉnh sửa nhà cung cấp";
+                model.value = "/VendorType/EditVendorType";
+                return model;
+              },
+            },
+          },
+
+          // ...add more VendorSegment children here if needed...
+        ],
+      },
+      {
+        path: "/VendorEvaluation",
+        handle: {
+          crumb: () => {
+            const model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "Đánh giá nhà cung cấp",
+              value: "/VendorEvaluation",
+            };
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "/VendorEvaluation/VendorEvaluationList",
+            element: <VendorEvaluationList />,
+            handle: {
+              crumb: () => ({
+                text: "Danh sách đánh giá nhà cung cấp",
+                value: "/VendorEvaluation/VendorEvaluationList",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+          {
+            path: "/VendorEvaluation/Create",
+            element: <CreateEvaluation />,
+            handle: {
+              crumb: () => ({
+                text: "Thêm đánh giá đăng ký nhà cung cấp",
+                value: "/VendorEvaluation/Create",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+          {
+            path: "/VendorEvaluation/CreateBid",
+            element: <CreateBidEvaluation />,
+            handle: {
+              crumb: () => ({
+                text: "Thêm đánh giá đăng ký đấu thầu",
+                value: "/VendorEvaluation/CreateBid",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+          {
+            path: "/VendorEvaluation/DetailEvaluation",
+            element: <DetailEvaluation />,
+            handle: {
+              crumb: () => ({
+                text: "Chi tiết đánh giá nhà cung cấp",
+                value: "/VendorEvaluation/DetailEvaluation",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+          {
+            path: "/VendorEvaluation/DetailEvaluation",
+            element: <DetailEvaluation />,
+            handle: {
+              crumb: () => ({
+                text: "Chi tiết đánh giá nhà cung cấp",
+                value: "/VendorEvaluation/DetailEvaluation",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+          {
+            path: "/VendorEvaluation/EvaluationDetail/EvaluationDetailList",
+            element: <EvaluationDetailList />,
+            handle: {
+              crumb: () => ({
+                text: "DS chi tiết đánh giá khác",
+                value:
+                  "/VendorEvaluation/EvaluationDetail/EvaluationDetailList",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+        ],
+      },
+
+      {
+        path: "/Bid",
+        handle: {
+          crumb: () => {
+            const model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "Quản lý thầu",
+              value: "/Bid",
+            };
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "/Bid/BidList",
+            element: <BidList />,
+            handle: {
+              crumb: () => ({
+                text: "Bảng danh sách hồ sơ dự thầu",
+                value: "/Bid/BidList",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+          {
+            path: "/Bid/CreateBid",
+            element: <CreateBid />,
+            handle: {
+              crumb: () => ({
+                text: "Thêm mới thầu",
+                value: "/Bid/CreateBid",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+          {
+            path: "/Bid/EditBid/:id",
+            element: <EditBid />,
+            handle: {
+              crumb: () => ({
+                text: "Chỉnh sửa thầu",
+                value: "/Bid/EditBid",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+          {
+            path: "/Bid/BidDetail/:id",
+            element: <BidDetail />,
+            handle: {
+              crumb: () => ({
+                text: "Chi tiết thầu",
+                value: "/Bid/BidDetail",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+          {
+            path: "/Bid/BidQuestion",
+            element: <BidQuestion />,
+            handle: {
+              crumb: () => ({
+                text: "Câu hỏi đánh giá thầu",
+                value: "/Bid/BidQuestion",
+                selected: false,
+                disabled: false,
+                group: null,
+              }),
+            },
+          },
+        ],
+      },
+      {
+        path: "/Brand",
+        handle: {
+          crumb: () => ({
+            disabled: false,
+            group: null,
+            selected: false,
+            text: "Thương hiệu",
+            value: "/Brand",
+          }),
+        },
+        children: [
+          {
+            path: "BrandList",
+            element: <BrandList />,
+            handle: {
+              crumb: () => ({
+                disabled: false,
+                group: null,
+                selected: false,
+                text: "Danh sách thương hiệu",
+                value: "/Brand/BrandList",
+              }),
+            },
+          },
+          {
+            path: "BrandCreate",
+            element: <CreateBrand />,
+            handle: {
+              crumb: () => ({
+                disabled: false,
+                group: null,
+                selected: false,
+                text: "Thêm mới thương hiệu",
+                value: "/Brand/BrandCreate",
+              }),
+            },
+          },
+          {
+            path: "BrandEdit/:id",
+            element: <EditBrand />,
+            handle: {
+              crumb: () => ({
+                disabled: false,
+                group: null,
+                selected: false,
+                text: "Chỉnh sửa thương hiệu",
+                value: "/Brand/BrandEdit",
+              }),
+            },
+          },
+          {
+            path: "BrandDetail/:id",
+            element: <DetailBrand />,
+            handle: {
+              crumb: () => ({
+                disabled: false,
+                group: null,
+                selected: false,
+                text: "Chi tiết thương hiệu",
+                value: "/Brand/BrandDetail",
+              }),
+            },
+          },
+        ],
+      },
+
+      {
+        path: "/TblVendorProfileRegistration",
+        handle: {
+          crumb: () => {
+            const model: SelectListItem = {
+              disabled: false,
+              group: null,
+              selected: false,
+              text: "Hồ sơ nhà cung cấp",
+              value: "/TblVendorProfileRegistration",
+            };
+            return model;
+          },
+        },
+        children: [
+          {
+            path: "/TblVendorProfileRegistration/CreateVendorRegistration",
+            element: <CreateVendorRegistration />,
+            handle: {
+              crumb: () => {
+                const model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "Thêm mới hồ sơ nhà cung cấp",
+                  value:
+                    "/TblVendorProfileRegistration/CreateVendorRegistration",
+                };
+                return model;
+              },
+            },
+          },
+          {
+            path: "/TblVendorProfileRegistration/ListVendorRegistration",
+            element: <ListVendorRegistration />,
+            handle: {
+              crumb: () => {
+                const model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "Danh sách hồ sơ nhà cung cấp",
+                  value: "/TblVendorProfileRegistration/ListVendorRegistration",
+                };
+                return model;
+              },
+            },
+          },
+          {
+            path: "/TblVendorProfileRegistration/EditVendorRegistration",
+            element: <EditVendorRegistration />,
+            handle: {
+              crumb: () => {
+                const model: SelectListItem = {
+                  disabled: false,
+                  group: null,
+                  selected: false,
+                  text: "Chỉnh sửa hồ sơ nhà cung cấp",
+                  value: "/TblVendorProfileRegistration/EditVendorRegistration",
+                };
+                return model;
+              },
+            },
+          },
+          {
+            path: "/TblVendorProfileRegistration/DetailVendorRegistration",
+            element: <DetailVendorRegistration />,
+            handle: {
+              crumb: () => ({
+                text: "Chi tiết hồ sơ nhà cung cấp",
+                value: "/TblVendorProfileRegistration/DetailVendorRegistration",
+              }),
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    path: "auth",
+    element: <LayoutAuth />,
+    children: [
+      {
+        path: "login",
+        element: <LayoutLogin />,
+      },
+      {
+        path: "register",
+        // element: <AuthenticationRegister />,
+      },
+    ],
+  },
+]);
+
+export default router;
