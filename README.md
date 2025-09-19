@@ -23,7 +23,7 @@
 
 ---
 
-## 📖 1. Giới thiệu
+## 📖 1. Giới thiệu  
 
 Hệ thống **Truyền file qua TCP** được xây dựng nhằm mô phỏng quá trình truyền file giữa các máy tính trong mạng thông qua giao thức TCP.  
 
@@ -52,7 +52,7 @@ Hệ thống **Truyền file qua TCP** được xây dựng nhằm mô phỏng q
 
 ---
 
-## 🔧 2. Công nghệ sử dụng
+## 🔧 2. Công nghệ sử dụng  
 
 - **Ngôn ngữ lập trình:** Java (JDK 8+)  
 - **Giao thức mạng:** TCP Socket (`java.net.Socket`, `java.net.ServerSocket`)  
@@ -79,7 +79,7 @@ Hệ thống **Truyền file qua TCP** được xây dựng nhằm mô phỏng q
 
 ---
 
-## ✨ Tính năng chính
+## ✨ Tính năng chính  
 
 - Gửi/nhận file giữa các client.  
 - Xác thực người dùng qua database.  
@@ -89,7 +89,7 @@ Hệ thống **Truyền file qua TCP** được xây dựng nhằm mô phỏng q
 
 ---
 
-## 🖥️ Công cụ & Môi trường phát triển
+## 🖥️ Công cụ & Môi trường phát triển  
 
 - Công cụ phát triển: **Eclipse IDE / IntelliJ IDEA**  
 - Phiên bản JDK: **Java SE 8+ (khuyến nghị Java 11+)**  
@@ -98,7 +98,7 @@ Hệ thống **Truyền file qua TCP** được xây dựng nhằm mô phỏng q
 
 ---
 
-## 🚀 3. Một số hình ảnh hệ thống
+## 🚀 3. Một số hình ảnh hệ thống  
 
 - **Giao diện Đăng nhập**  
 <p align="center">
@@ -108,19 +108,19 @@ Hệ thống **Truyền file qua TCP** được xây dựng nhằm mô phỏng q
 
 - **Giao diện Chọn file**  
 <p align="center">
-  <img width="430" height="385" alt="Hình 2" src="docs/image2.png"/>
+  <img width="430" height="385" alt="Hình 2" src="docs/Hình2.png"/>
 </p>
 <p align="center"><i>Hình 2. Giao diện chọn file</i></p>
 
 - **Giao diện Thông báo và hiển thị thông tin file**  
 <p align="center">
-  <img width="430" height="385" alt="Hình 3" src="docs/image3.png"/>
+  <img width="430" height="385" alt="Hình 3" src="docs/Hình3.png"/>
 </p>
 <p align="center"><i>Hình 3. Thông báo & hiển thị file</i></p>
 
 - **Giao diện Tìm kiếm file**  
 <p align="center">
-  <img width="430" height="385" alt="Hình 4" src="docs/image4.png"/>
+  <img width="430" height="385" alt="Hình 4" src="docs/Hình4.png"/>
 </p>
 <p align="center"><i>Hình 4. Giao diện tìm kiếm</i></p>
 
@@ -128,13 +128,8 @@ Hệ thống **Truyền file qua TCP** được xây dựng nhằm mô phỏng q
 
 ## 📝 4. Các bước cài đặt  
 
-*(Phần này bạn có thể bổ sung hướng dẫn chi tiết: clone project, cấu hình database, chạy server & client...)*  
-
----
-
-## 📌 5. Liên hệ  
-
-- **Sinh viên thực hiện:** **Nguyễn Xuân Thuận**  
-- 🌐 Website: [FIT DNU](https://dainam.edu.vn/vi/khoa-cong-nghe-thong-tin)  
-- 📧 Email: [xuanthuan611@gmail.com](mailto:xuanthuan611@gmail.com)  
-- 📱 Fanpage: [AIoTLab - FIT DNU](https://www.facebook.com/DNUAIoTLab)  
+### 🔹 Bước 1: Chuẩn bị môi trường  
+**Kiểm tra Java:**  
+```bash
+java -version
+javac -version
