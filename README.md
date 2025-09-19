@@ -101,30 +101,34 @@ Hệ thống **Truyền file qua TCP** được xây dựng nhằm mô phỏng q
 ## 🚀 3. Một số hình ảnh hệ thống  
 
 - **Giao diện Đăng nhập**
+  
   <img width="428" height="392" alt="image" src="https://github.com/user-attachments/assets/2c479f08-73ee-403a-83d8-b83fa760ea00" /><br/>
 
-  <i>Hình 1: Giao diện Đăng nhập</i>
+  <p align="center"><i>Hình 1: Giao diện Đăng nhập</i>
 </p>
 <br/>
 
-- **Giao diện Đăng ký**  
+- **Giao diện Đăng ký**
+  
 <img width="429" height="394" alt="image" src="https://github.com/user-attachments/assets/6747bac6-ac32-431c-899b-86efdf8dcc23" /><br/>
 
-  <i>Hình 1: Giao diện Đăng ký</i>
+  <p align="center"><i>Hình 2: Giao diện Đăng ký</i>
 </p>
 <br/>
 
-- **Giao diện người dùng**  
+- **Giao diện người dùng**
+- 
 <img width="729" height="542" alt="image" src="https://github.com/user-attachments/assets/18d482a1-bad2-4f61-ad1f-42dadb26fd6a" /><br/>
 
-  <i>Hình 1: Giao diện người dùng</i>
+  <p align="center"><i>Hình 3: Giao diện người dùng</i>
 </p>
 <br/>
 
-- **Giao diện người dùng truyền file**  
+- **Giao diện người dùng truyền file**
+- 
 <img width="1534" height="839" alt="image" src="https://github.com/user-attachments/assets/618c7a4d-9e31-4d0e-98eb-54b561bc3f9d" /><br/>
 
-  <i>Hình 1: Giao diện người  dùng truyền file và server lưu lại thông báo</i>
+  <p align="center"><i>Hình 4: Giao diện người  dùng truyền file và server lưu lại thông báo</i>
 </p>
 <br/>
 
