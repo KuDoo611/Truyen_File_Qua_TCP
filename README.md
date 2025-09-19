@@ -24,101 +24,101 @@ Hệ thống Truyền file qua TCP được xây dựng nhằm mô phỏng quá 
 
 Mục tiêu chính:
 
-Hiểu rõ cách hoạt động của giao thức TCP trong việc truyền dữ liệu.
+-Hiểu rõ cách hoạt động của giao thức TCP trong việc truyền dữ liệu.
 
-Nắm vững cơ chế kết nối Client – Server.
+-Nắm vững cơ chế kết nối Client – Server.
 
-Thực hành xử lý dữ liệu file (upload/download).
+-Thực hành xử lý dữ liệu file (upload/download).
 
-Xây dựng giao diện người dùng thân thiện với Java Swing.
+-Xây dựng giao diện người dùng thân thiện với Java Swing.
 
 Chức năng chính cơ bản:
 
 1.1 Client:
 
-Giao diện Đăng nhập, Đăng ký.
+-Giao diện Đăng nhập, Đăng ký.
 
-Gửi file: Cho phép người dùng chọn file và gửi đến người nhận khác
+-Gửi file: Cho phép người dùng chọn file và gửi đến người nhận khác
 
-Quản lý lịch sử: Xem lịch sử file đã gửi và file đã nhận
+-Quản lý lịch sử: Xem lịch sử file đã gửi và file đã nhận
 
 2. Server:
 3. Database
-Lắng nghe kết nối: Chấp nhận kết nối từ các client trên cổng 12345
+-Lắng nghe kết nối: Chấp nhận kết nối từ các client trên cổng 12345
 
-Quản lý truyền file: Xử lý việc nhận và lưu trữ file từ client
+-Quản lý truyền file: Xử lý việc nhận và lưu trữ file từ client
 
-Hiển thị thông tin: Hiển thị thông báo kết nối và lịch sử truyền file
+-Hiển thị thông tin: Hiển thị thông báo kết nối và lịch sử truyền file
 
-Quản lý database: Lưu trữ thông tin về các lần truyền file
+-Quản lý database: Lưu trữ thông tin về các lần truyền file
 
 5. Database:
 
-Quản lý người dùng: Đăng ký, đăng nhập, kiểm tra user
+-Quản lý người dùng: Đăng ký, đăng nhập, kiểm tra user
 
-Lưu trữ lịch sử: Ghi nhận các lần gửi/nhận file với trạng thái
+-Lưu trữ lịch sử: Ghi nhận các lần gửi/nhận file với trạng thái
 
-Kết nối database: Quản lý kết nối đến MySQL 
+-Kết nối database: Quản lý kết nối đến MySQL 
 
 ## 🔧 2. Công nghệ sử dụng
-Ngôn ngữ lập trình: Java (JDK 8+)
-Giao thức mạng: TCP Socket (java.net.Socket, java.net.ServerSocket)
-Xử lý đa luồng: Thread (java.lang.Thread)
-Công nghệ giao diện: Java Swing (JFrame, JButton, JTable, JProgressBar, JFileChooser)
-Cơ chế truyền dữ liệu: DataInputStream và DataOutputStream để truyền file và metadata
+-Ngôn ngữ lập trình: Java (JDK 8+)
+-Giao thức mạng: TCP Socket (java.net.Socket, java.net.ServerSocket)
+-Xử lý đa luồng: Thread (java.lang.Thread)
+-Công nghệ giao diện: Java Swing (JFrame, JButton, JTable, JProgressBar, JFileChooser)
+-Cơ chế truyền dữ liệu: DataInputStream và DataOutputStream để truyền file và metadata
 
 📚 Thư viện sử dụng
 
-java.net - Socket communication
+-java.net - Socket communication
 
-java.io - File I/O operations
+-java.io - File I/O operations
 
-javax.swing - GUI components
+-javax.swing - GUI components
 
-java.awt - Layout managers và Color
+-java.awt - Layout managers và Color
 
-java.sql - Database connectivity (JDBC)
+-java.sql - Database connectivity (JDBC)
 
-java.text - Date formatting
+-java.text - Date formatting
 
-java.util - Collections và utility classes
+-java.util - Collections và utility classes
 
 🗄️ Cơ sở dữ liệu
 
-Hệ quản trị: MySQL
+-Hệ quản trị: MySQL
 
-Kết nối: JDBC Driver (mysql-connector-java)
+-Kết nối: JDBC Driver (mysql-connector-java)
 
-Schema: truyen_fileTCP
+-Schema: truyen_fileTCP
 
-Tables: users (quản lý người dùng), history (lịch sử truyền file)
+-Tables: users (quản lý người dùng), history (lịch sử truyền file)
 
 🔧 Tính năng chính
 
-Gửi/nhận file giữa các client
+-Gửi/nhận file giữa các client
 
-Xác thực người dùng qua database
+-Xác thực người dùng qua database
 
-Theo dõi tiến trình truyền file real-time
+-Theo dõi tiến trình truyền file real-time
 
-Lưu trữ lịch sử truyền file với trạng thái
+-Lưu trữ lịch sử truyền file với trạng thái
 
-Giao diện quản lý file trực quan
+-Giao diện quản lý file trực quan
 
 🖥️ Công cụ & Môi trường phát triển
 
-Công cụ phát triển: Eclipse IDE / IntelliJ IDEA
+-Công cụ phát triển: Eclipse IDE / IntelliJ IDEA
 
-Phiên bản JDK: Java SE 8+ (khuyến nghị Java 11+)
+-Phiên bản JDK: Java SE 8+ (khuyến nghị Java 11+)
 
-Database: MySQL 5.7+ hoặc 8.0+
+-Database: MySQL 5.7+ hoặc 8.0+
 
-Hệ điều hành: Windows 10/11 (đa nền tảng: Linux, macOS)
+-Hệ điều hành: Windows 10/11 (đa nền tảng: Linux, macOS)
 
 
 ## 🚀 3. Một số hình ảnh hệ thống
 - Giao diện Đăng nhập.
-<p align="center"> <img width="800" height="800" alt="image" src=<img width="430" height="385" alt="Hình 1" src="https://github.com/user-attachments/assets/cf148e23-84b8-4ec2-bf61-1b9a2d2a51bd" />
+<p align="center"> <img width="800" height="800" alt="image" src=<img width="430" height="385" alt="Hình 1" src="/docs/Hình 1.png" />
 /> </p>
 <p align="center"><i>Hình ảnh 1</i></p>
 
