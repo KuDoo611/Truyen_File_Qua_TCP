@@ -117,12 +117,33 @@ Hệ điều hành: Windows 10/11 (đa nền tảng: Linux, macOS)
 
 
 ## 🚀 3. Một số hình ảnh hệ thống
-Giao diện đăng nhập
+- Giao diện Đăng nhập.
+<p align="center"> <img width="800" height="800" alt="image" src=<img width="430" height="385" alt="Hình 1" src="https://github.com/user-attachments/assets/cf148e23-84b8-4ec2-bf61-1b9a2d2a51bd" />
+/> </p>
+<p align="center"><i>Hình ảnh 1</i></p>
+
+- Giao diện Chọn file.
+
+<p align="center"> <img width="800" height="800" alt="image" src=image2.png/> </p>
+<p align="center"><i>Hình ảnh 2</i></p>
+
+- Giao diện Thông báo và hiển thị thông tin file.
+
+<p align="center"> <img width="800" height="800" alt="image" src=image3.png/> </p>
+<p align="center"><i>Hình ảnh 3</i></p>
+
+- Giao diện Tìm kiếm file.
+<p align="center"> <img width="800" height="800" alt="image" src=image4.png/> </p>
+<p align="center"><i>Hình ảnh 4</i></p>
+
 
 ## 📝 4. Các bước cài đặt 
 
 ## 5. Liên hệ cá nhân
 Sinh viên thực hiện: Nguyễn Xuân Thuận
+
 Websize: https://dainam.edu.vn/vi/khoa-cong-nghe-thong-tin
+
 Email: [xuanthuan611@gmail.com]
+
 Fanpage: https://www.facebook.com/DNUAIoTLab
