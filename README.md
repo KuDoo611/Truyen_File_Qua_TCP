@@ -102,28 +102,35 @@ Hệ thống **Truyền file qua TCP** được xây dựng nhằm mô phỏng q
 
 - **Giao diện Đăng nhập**  
 <p align="center">
-  <img width="430" height="385" alt="Hình 1" src="docs/Hình1.png"/>
-</p>
-<p align="center"><i>Hình 1. Giao diện đăng nhập</i></p>
-
-- **Giao diện Chọn file**  
 <p align="center">
-  <img width="430" height="385" alt="Hình 2" src="docs/Hình2.png"/>
+  <img src="docs/Hình2.jpg" alt="1" width="800"/><br/>
+  <i>Hình 1: Giao diện Đăng nhập</i>
 </p>
-<p align="center"><i>Hình 2. Giao diện chọn file</i></p>
+<br/>
 
-- **Giao diện Thông báo và hiển thị thông tin file**  
+- **Giao diện Đăng ký**  
 <p align="center">
-  <img width="430" height="385" alt="Hình 3" src="docs/Hình3.png"/>
-</p>
-<p align="center"><i>Hình 3. Thông báo & hiển thị file</i></p>
-
-- **Giao diện Tìm kiếm file**  
 <p align="center">
-  <img width="430" height="385" alt="Hình 4" src="docs/Hình4.png"/>
+  <img src="docs/Hình1.jpg" alt="1" width="800"/><br/>
+  <i>Hình 1: Giao diện Đăng ký</i>
 </p>
-<p align="center"><i>Hình 4. Giao diện tìm kiếm</i></p>
+<br/>
 
+- **Giao diện người dùng**  
+<p align="center">
+<p align="center">
+  <img src="docs/Hình3.jpg" alt="1" width="800"/><br/>
+  <i>Hình 1: Giao diện người dùng</i>
+</p>
+<br/>
+
+- **Giao diện người dùng truyền file**  
+<p align="center">
+<p align="center">
+  <img src="docs/Hình4.jpg" alt="1" width="800"/><br/>
+  <i>Hình 1: Giao diện người  dùng truyền file và server lưu lại thông báo</i>
+</p>
+<br/>
 ---
 
 ## 📝 4. Các bước cài đặt  
@@ -133,3 +140,7 @@ Hệ thống **Truyền file qua TCP** được xây dựng nhằm mô phỏng q
 ```bash
 java -version
 javac -version
+## 📌 5. Liên hệ - **Sinh viên thực hiện:** **Nguyễn Xuân Thuận**
+ - 🌐 Website: [FIT DNU](https://dainam.edu.vn/vi/khoa-cong-nghe-thong-tin)
+ - 📧 Email: [xuanthuan611@gmail.com](mailto:xuanthuan611@gmail.com)
+ - 📱 Fanpage: [AIoTLab - FIT DNU](https://www.facebook.com/DNUAIoTLab)
