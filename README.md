@@ -20,8 +20,30 @@
 </div>
 
 ## 📖 1. Giới thiệu
-Học phần trang bị cho người học những kiến thức nền tảng của lập trình mạng và các kỹ năng cần thiết để thiết kế và cài đặt các ứng dụng mạng và các chuẩn ở mức ứng dụng dựa trên mô hình Client/Server, có sử dụng các giao tiếp chương trình dựa trên Sockets. Kết thúc học phần, sinh viên có thể viết các chương trình ứng dụng mạng với giao thức tầng ứng dụng tự thiết kế.
+Hệ thống Truyền file qua TCP được xây dựng nhằm mô phỏng quá trình truyền file giữa các máy tính trong mạng thông qua giao thức TCP. Trong mô hình này, Server đóng vai trò trung gian, chịu trách nhiệm lắng nghe kết nối từ Client, tiếp nhận dữ liệu (file) từ Client gửi đến và lưu trữ file trên server.
 
+Mục tiêu chính:
+
+Hiểu rõ cách hoạt động của giao thức TCP trong việc truyền dữ liệu.
+
+Nắm vững cơ chế kết nối Client – Server.
+Thực hành xử lý dữ liệu file (upload/download).
+Xây dựng giao diện người dùng thân thiện với Java Swing.
+Chức năng chính cơ bản:
+
+1.1 Client:
+Giao diện Đăng nhập, Đăng ký.
+Gửi file: Cho phép người dùng chọn file và gửi đến người nhận khác
+Quản lý lịch sử: Xem lịch sử file đã gửi và file đã nhận
+2. Server:
+Lắng nghe kết nối: Chấp nhận kết nối từ các client trên cổng 12345
+Quản lý truyền file: Xử lý việc nhận và lưu trữ file từ client
+Hiển thị thông tin: Hiển thị thông báo kết nối và lịch sử truyền file
+Quản lý database: Lưu trữ thông tin về các lần truyền file
+3. Database:
+Quản lý người dùng: Đăng ký, đăng nhập, kiểm tra user
+Lưu trữ lịch sử: Ghi nhận các lần gửi/nhận file với trạng thái
+Kết nối database: Quản lý kết nối đến MySQL database
 ## 🔧 2. Ngôn ngữ lập trình sử dụng: [![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)](https://www.java.com/)
 
 ## 🚀 3. Các project đã thực hiện
