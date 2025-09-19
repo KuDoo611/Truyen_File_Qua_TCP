@@ -29,13 +29,13 @@ Hiểu rõ cách hoạt động của giao thức TCP trong việc truyền dữ
 Nắm vững cơ chế kết nối Client – Server.
 Thực hành xử lý dữ liệu file (upload/download).
 Xây dựng giao diện người dùng thân thiện với Java Swing.
-Chức năng chính cơ bản:
+Chức năng chính cơ bản:br
 
-1.1 Client:
-Giao diện Đăng nhập, Đăng ký.
-Gửi file: Cho phép người dùng chọn file và gửi đến người nhận khác
-Quản lý lịch sử: Xem lịch sử file đã gửi và file đã nhận
-2. Server:
+1.1 Client:br
+Giao diện Đăng nhập, Đăng ký.br
+Gửi file: Cho phép người dùng chọn file và gửi đến người nhận khácbr
+Quản lý lịch sử: Xem lịch sử file đã gửi và file đã nhậnbr
+2. Server:br
 Lắng nghe kết nối: Chấp nhận kết nối từ các client trên cổng 12345
 Quản lý truyền file: Xử lý việc nhận và lưu trữ file từ client
 Hiển thị thông tin: Hiển thị thông báo kết nối và lịch sử truyền file
