@@ -199,7 +199,8 @@ Hệ thống **Truyền file qua TCP** được xây dựng nhằm mô phỏng q
 ---
 
 
-## 📌 5. Liên hệ - **Sinh viên thực hiện:** **Nguyễn Xuân Thuận**
+## 📌 5. Liên hệ 
+- **Sinh viên thực hiện:** **Nguyễn Xuân Thuận**
  - 🌐 Website: [FIT DNU](https://dainam.edu.vn/vi/khoa-cong-nghe-thong-tin)
  - 📧 Email: [xuanthuan611@gmail.com](mailto:xuanthuan611@gmail.com)
  - 📱 Fanpage: [AIoTLab - FIT DNU](https://www.facebook.com/DNUAIoTLab)
