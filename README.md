@@ -36,9 +36,9 @@ Giao diện Đăng nhập, Đăng ký.br
 Gửi file: Cho phép người dùng chọn file và gửi đến người nhận khácbr
 Quản lý lịch sử: Xem lịch sử file đã gửi và file đã nhậnbr
 2. Server:br
-Lắng nghe kết nối: Chấp nhận kết nối từ các client trên cổng 12345
-Quản lý truyền file: Xử lý việc nhận và lưu trữ file từ client
-Hiển thị thông tin: Hiển thị thông báo kết nối và lịch sử truyền file
+Lắng nghe kết nối: Chấp nhận kết nối từ các client trên cổng 12345br
+Quản lý truyền file: Xử lý việc nhận và lưu trữ file từ clientbr
+Hiển thị thông tin: Hiển thị thông báo kết nối và lịch sử truyền filebr
 Quản lý database: Lưu trữ thông tin về các lần truyền file
 3. Database:
 Quản lý người dùng: Đăng ký, đăng nhập, kiểm tra user
